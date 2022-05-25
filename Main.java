@@ -2,13 +2,13 @@
 import java.util.Scanner;
 //functions go here
 class Main{
-  public static String notBlank(String name) {
-    System.out.println("Hello!");
+  static String notBlank(String name) {
+    System.out.println("Hello " + name);
     return name;
   }
     
   //************ Main Routine ***********
-  static void main() {
+  public static void main(String[] args) {
     Scanner getName = new Scanner(System.in);
     System.out.println("What is your name?");
     String name = getName.nextLine();
