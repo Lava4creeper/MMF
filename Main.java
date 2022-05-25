@@ -2,17 +2,25 @@
 import java.util.Scanner;
 //functions go here
 class Main{
-  static String notBlank(String name) {
-    System.out.println("Hello " + name);
-    return name;
+  public static void notBlank(String name) {
+    if (name != "") {
+      System.out.println("Hello " + name);
+    }
+    else {
+      System.out.println("Name cannot be blank");
+      getName();
+    }
+  }
+  public static void getName() {
+     Scanner getName = new Scanner(System.in);
+    System.out.println("What is your name?");
+    String name = getName.nextLine();
+    notBlank(name);
   }
     
   //************ Main Routine ***********
   public static void main(String[] args) {
-    Scanner getName = new Scanner(System.in);
-    System.out.println("What is your name?");
-    String name = getName.nextLine();
-    notBlank(name);
+    getName();
   }
   //set up dictionaries / lists needed to hold data
 
