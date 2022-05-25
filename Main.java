@@ -1,14 +1,24 @@
 //import statements
-
+import java.util.Scanner;
 //functions go here
+class Main{
+  public static String notBlank(String name) {
+    System.out.println("Hello!");
+    return name;
+  }
+    
+  //************ Main Routine ***********
+  static void main() {
+    Scanner getName = new Scanner(System.in);
+    System.out.println("What is your name?");
+    String name = getName.nextLine();
+    notBlank(name);
+  }
+  //set up dictionaries / lists needed to hold data
 
-//************ Main Routine ***********
+  //Ask user if they have used the program before & show instructions if necessary
 
-//set up dictionaries / lists needed to hold data
-
-//Ask user if they have used the program before & show instructions if necessary
-
-//Loop to get ticket details
+  //Loop to get ticket details
 
   //get name (can't be blank)
 
@@ -22,7 +32,7 @@
 
   //ask for payment method (and apply surchanrge if needed)
 
-//calculate total sales and profit
+  //calculate total sales and profit
 
-//output data to text file
-
+  //output data to text file
+}
