@@ -17,13 +17,17 @@ class Main{
         System.out.println();
       }
     }
-    getName.close();
     return name;
   } 
   //************ Main Routine ***********
   public static void main(String[] args) {
-    String inputName = getName();
-    System.out.println("Hello " + inputName);
+    String inputName = "";
+    int count = 0;
+    int MAX_TICKETS = 5;
+    while ((inputName != "xxx") & (count != MAX_TICKETS)){
+    inputName = getName();
+      count ++;
+      }
   }
   //set up dictionaries / lists needed to hold data
 
