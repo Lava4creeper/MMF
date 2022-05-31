@@ -24,11 +24,18 @@ class Main{
     String inputName = "";
     int count = 0;
     int MAX_TICKETS = 5;
-    while ((inputName != "xxx") & (count != MAX_TICKETS)){
-    inputName = getName();
-      count ++;
+    while ((inputName != "xxx") & (count < MAX_TICKETS)){
+      System.out.println("Remaining tickets: " + (MAX_TICKETS - count));
+      inputName = getName();
+      count ++;     
       }
-  }
+    if (count == MAX_TICKETS) {
+      System.out.println("All available tickets have been sold.");
+    }
+    else {
+      System.out.println(count + " tickets sold. \n" + (MAX_TICKETS - count) + " tickets still available");
+    }
+    }
   //set up dictionaries / lists needed to hold data
 
   //Ask user if they have used the program before & show instructions if necessary
