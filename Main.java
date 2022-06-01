@@ -2,6 +2,7 @@
 import java.util.Scanner;
 //functions go here
 class Main{
+  //get name (can't be blank)
   public static String getName() {
     String name = "";
     Boolean validName = false;
@@ -21,11 +22,21 @@ class Main{
   } 
   //************ Main Routine ***********
   public static void main(String[] args) {
+    //set up dictionaries / lists needed to hold data
+    String EXITCODE = "xxx";
     String inputName = "";
     int count = 0;
     int MAX_TICKETS = 5;
-    while ((inputName != "xxx") & (count < MAX_TICKETS)){
-      System.out.println("Remaining tickets: " + (MAX_TICKETS - count));
+    //Ask user if they have used the program before & show instructions if necessary
+    //Loop to get ticket details
+    while ((count < MAX_TICKETS) & (inputName.equals(EXITCODE) == false)){
+      if (MAX_TICKETS - count > 1) {
+        System.out.println("Remaining tickets: " + (MAX_TICKETS - count));
+      }
+      else {
+        System.out.println("1 ticket remaining");
+      }
+      //get name (can't be blank)
       inputName = getName();
       count ++;     
       }
@@ -33,17 +44,10 @@ class Main{
       System.out.println("All available tickets have been sold.");
     }
     else {
+      count --;
       System.out.println(count + " tickets sold. \n" + (MAX_TICKETS - count) + " tickets still available");
     }
     }
-  //set up dictionaries / lists needed to hold data
-
-  //Ask user if they have used the program before & show instructions if necessary
-
-  //Loop to get ticket details
-
-  //get name (can't be blank)
-
   //get age (between 1 and 130)
 
   //calculate ticket price
