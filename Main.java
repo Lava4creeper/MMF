@@ -4,11 +4,11 @@ import java.util.InputMismatchException;
 //functions go here
 class Main{
   //get name (can't be blank)
-  public static String getName(String EXITCODE) {
+  public static String getName() {
     String name = "";
     Boolean validName = false;
     Scanner getName = new Scanner(System.in);
-    while ((validName != true) & (name.equals(EXITCODE) == false)) {      
+    while (validName != true) {      
       System.out.println("What is your name?");
       name = getName.nextLine();
       if (name != "") {
@@ -24,14 +24,14 @@ class Main{
 //get age (between 1 and 130)
   public static int getAge() {
     Scanner age = new Scanner(System.in);
-    String error = "Please enter a valid integer between 12 and 130";
-    boolean valid = false;
     int inputAge = 0;
+    String error = "Please enter a valid integer that is greater than 0";
+    boolean valid = false;
     do {
       try {
          System.out.println("What is your age?");
          inputAge = age.nextInt();
-         if(inputAge < 12 || inputAge > 130){
+         if(inputAge <= 0){
            System.out.println(error);
            }
          else {
@@ -50,6 +50,8 @@ class Main{
   public static void main(String[] args) {
     //set up dictionaries / lists needed to hold data
     String EXITCODE = "xxx";
+    String tooYoungError = "Sorry, you are too young to view this material";
+    String tooOldError = "Sorry, you seem to have entered an age that is unrealistic";
     String inputName = "";
     int count = 0;
     int MAX_TICKETS = 5;
@@ -64,16 +66,25 @@ class Main{
         System.out.println("1 ticket remaining");
       }
       //get name (can't be blank)
-      inputName = getName(EXITCODE);
-      inputAge = getAge();
-      System.out.println("Your name is " + inputName + ", you are " + inputAge + " years old");
-      count ++;     
+      inputName = getName();
+      if (inputName.equals(EXITCODE)) {
+        continue;
+      }
+      else {
+        inputAge = getAge();
+        if (inputAge < 12) {
+          System.out.println(tooYoungError);
+        }
+        else if (inputAge > 130) {
+          System.out.println(tooOldError);
+        }
+      }
+      count ++;  
       }
     if (count == MAX_TICKETS) {
       System.out.println("All available tickets have been sold.");
     }
     else {
-      count --;
       System.out.println(count + " tickets sold. \n" + (MAX_TICKETS - count) + " tickets still available");
     }
     }
