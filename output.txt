@@ -1,0 +1,1 @@
+Name: Thomas, Age: 16, Charged: $10.5, Snacks: false
